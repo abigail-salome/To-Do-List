@@ -1,0 +1,14 @@
+.task-container {
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    flex-direction: column;
+}
+
+/* .project-name {
+    color: #333333;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+   */
