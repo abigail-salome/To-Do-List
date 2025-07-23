@@ -1,0 +1,57 @@
+.task-list {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+  }
+  
+  .task-item {
+    background-color: #ffffff;
+    border: 1px solid #d6e9d8;
+    border-left: 5px solid #34a853; /* green accent */
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .task-item:hover {
+    box-shadow: 0 2px 8px rgba(52, 168, 83, 0.2); /* green shadow */
+  }
+  
+  .circle-btn {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #34a853;
+    background-color: transparent;
+    margin-right: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .circle-btn:hover {
+    background-color: #34a853;
+  }
+  
+  .struck-text {
+    text-decoration: line-through;
+    color: #999999;
+    flex: 1;
+    margin-right: 1rem;
+  }
+  
+  .task-item p {
+    margin: 0;
+    font-size: 1rem;
+    color: #333333;
+    flex: 1;
+  }
+  
+  .actions {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
