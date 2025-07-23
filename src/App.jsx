@@ -1,35 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useEffect, useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ProjectList from "./Pages/ProjectList";
+import ProjectPage from "./Pages/ProjectPage.jsx";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  // Load from localStorage before first render
+  const [projects, setProjects] = useState(() => {
+    const stored = localStorage.getItem("projects");
+    return stored ? JSON.parse(stored) : [];
+  });
+
+  // Save projects to localStorage on change
+  useEffect(() => {
+    localStorage.setItem("projects", JSON.stringify(projects));
+  }, [projects]);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={<ProjectList projects={projects} setProjects={setProjects} />}
+        />
+        <Route
+          path="/projects/:projectId"
+          element={<ProjectPage projects={projects} />}
+        />
+      </Routes>
+    </Router>
+  );
+};
 
-export default App
+export default App;
