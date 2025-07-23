@@ -1,0 +1,99 @@
+
+
+.task-form-container {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #f0fff4; /* light green background */
+    border: 2px solid #34a853; /* Google green */
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 128, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-family: Arial, sans-serif;
+  }
+  
+  .task-form-container label {
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+    color: #2e7d32; /* dark green */
+  }
+  
+  .task-form-container input[type="text"],
+  .task-form-container input[type="date"],
+  .task-form-container select {
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-top: 0.3rem;
+    font-size: 1rem;
+  }
+  
+  .task-form-container input[type="checkbox"] {
+    margin-top: 0.5rem;
+    width: 18px;
+    height: 18px;
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 1rem;
+  }
+  
+  .save-task-button {
+    background-color: #34a853;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+  }
+  
+  .save-task-button:hover {
+    background-color: #2c8c47;
+  }
+  
+  .cancel-task-button {
+    background-color: #e0e0e0;
+    color: #333;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+  }
+  
+  .cancel-task-button:hover {
+    background-color: #c6c6c6;
+  }
+  /* Style for +Add Task button */
+.add-task-button {
+    background-color: #34a853; /* primary green */
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.25s ease, transform 0.1s ease;
+    box-shadow: 0 4px 8px rgba(52, 168, 83, 0.2);
+  }
+  
+  .add-task-button:hover {
+    background-color: #2c8c47;
+    transform: translateY(-2px);
+  }
+  
+  .add-task-button:active {
+    background-color: #23713b;
+    transform: scale(0.98);
+  }
+  
