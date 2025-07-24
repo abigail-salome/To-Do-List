@@ -93,3 +93,17 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
+
+  .remove-project {
+    background-color: #e53935 !important;
+    border: none;
+    border-radius: 4px;
+    padding: 6px;
+    cursor: pointer;
+    color: white;
+   
+}
+
+.remove-project:hover {
+    background-color: #c62828 !important;
+}

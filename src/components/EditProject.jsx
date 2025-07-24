@@ -1,30 +1,22 @@
 import React, { useState } from "react";
 import "./EditProject.css";
 
-const EditProject = ({ projectId, projects, setProjects }) => {
+const EditProject = ({ project, onSubmit }) => {
   const [showForm, setShowForm] = useState(false);
-  const [newName, setNewName] = useState("");
+  const [newName, setNewName] = useState(project.name);
 
   const handleCancel = () => {
     setShowForm(false);
-    setNewName("");
+    setNewName(project.name);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const updatedProjects = projects.map((project) =>
-      project.id === projectId
-        ? { ...project, name: newName.trim() }
-        : project
-    );
-
-    setProjects(updatedProjects);
+    onSubmit(project.id, newName);
     setShowForm(false);
     setNewName("");
   };
-
-  const currentProject = projects.find((p) => p.id === projectId);
 
   return (
     <div>
@@ -32,7 +24,6 @@ const EditProject = ({ projectId, projects, setProjects }) => {
         <button
           onClick={() => {
             setShowForm(true);
-            setNewName(currentProject?.name || "");
           }}
           className="edit-project"
         >
@@ -51,8 +42,16 @@ const EditProject = ({ projectId, projects, setProjects }) => {
             required
           />
           <div className="actions">
-            <button type="submit" className="add-project">Update</button>
-            <button type="button" onClick={handleCancel} className="cancel-project">Cancel</button>
+            <button type="submit" className="add-project">
+              Update
+            </button>
+            <button
+              type="button"
+              onClick={handleCancel}
+              className="cancel-project"
+            >
+              Cancel
+            </button>
           </div>
         </form>
       )}

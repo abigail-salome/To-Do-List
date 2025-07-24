@@ -1,9 +1,16 @@
 import React from "react";
 import "./SideBar.css";
 import EditProject from "./EditProject";
-import RemoveProject from "./RemoveProject";
+import { useNavigate } from "react-router-dom";
 
-const SideBar = ({ projects, setProjects, navigate }) => {
+const SideBar = ({ projects, setProjects }) => {
+  const navigate = useNavigate();
+  const onSubmit = (projectId, newName) => {
+    const updatedProjects = projects.map((project) => {
+      return project.id === projectId ? { ...project, name: newName } : project;
+    });
+    setProjects(updatedProjects);
+  };
   return (
     <div className="sidebar">
       <h2>My Projects</h2>
@@ -15,10 +22,22 @@ const SideBar = ({ projects, setProjects, navigate }) => {
         ) : (
           projects.map((project) => (
             <li key={project.id} className="project-item">
-              <span className="project-name" onClick={() => navigate(`/projects/${project.id}`)}>{project.name}</span>
+              <span
+                className="project-name"
+                onClick={() => navigate(`/projects/${project.id}`)}
+              >
+                {project.name}
+              </span>
               <div className="actions">
-                <EditProject projects={projects} projectId={project.id} setProjects={setProjects} />
-                <RemoveProject projects={projects} projectId={project.id} setProjects={setProjects} />
+                <EditProject project={project} onSubmit={onSubmit} />
+                <button
+                  onClick={() =>
+                    setProjects(projects.filter(({ id }) => id !== project.id))
+                  }
+                  className="remove-project"
+                >
+                  X
+                </button>
               </div>
             </li>
           ))
