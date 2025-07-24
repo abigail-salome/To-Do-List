@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ProjectList from "./Pages/ProjectList";
 import ProjectPage from "./Pages/ProjectPage.jsx";
+import "./App.css";
 
 const App = () => {
   // Load from localStorage before first render
@@ -20,7 +21,9 @@ const App = () => {
       <Routes>
         <Route
           path="/"
-          element={<ProjectList projects={projects} setProjects={setProjects} />}
+          element={
+            <ProjectList projects={projects} setProjects={setProjects} />
+          }
         />
         <Route
           path="/projects/:projectId"

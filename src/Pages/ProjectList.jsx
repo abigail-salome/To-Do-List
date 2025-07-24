@@ -2,19 +2,10 @@ import React from "react";
 import SideBar from "../components/SideBar";
 import AddProject from "../components/AddProject";
 
-import { useNavigate } from "react-router-dom";
-
-
-
-const ProjectList = ({ projects, setProjects}) => {
-  
-  const navigate = useNavigate()
-  
-
+const ProjectList = ({ projects, setProjects }) => {
   return (
     <div>
-        
-      <SideBar projects={projects} setProjects={setProjects} navigate={navigate} />
+      <SideBar projects={projects} setProjects={setProjects} />
       <AddProject setProjects={setProjects} />
     </div>
   );

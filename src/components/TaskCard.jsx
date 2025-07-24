@@ -31,7 +31,7 @@ const TaskCard = ({ tasks, setTasks }) => {
             <p>Due: {task.dueDate}</p> */}
 
             <div className="actions">
-              <EditTask tasks={tasks} setTasks={setTasks} taskId={task.id} />
+              <EditTask tasks={tasks} setTasks={setTasks} task={task} />
               <RemoveTask tasks={tasks} setTasks={setTasks} taskId={task.id} />
             </div>
           </li>

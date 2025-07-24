@@ -54,6 +54,7 @@ const AddProject = ({ setProjects }) => {
             onChange={(e) => setProjectName(e.target.value)}
             className="project-input"
             required
+            autoFocus
           />
           <div className="form-actions">
             <button className="save-project" type="submit">
