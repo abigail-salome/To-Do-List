@@ -45,7 +45,7 @@ const AddTask = ({ tasks, setTasks, projectId }) => {
     <div className="add-task-container">
       {!showForm && (
         <button onClick={() => setShowForm(true)} className="add-task-button">
-          +Add Task
+          +  Add Task
         </button>
       )}
 
